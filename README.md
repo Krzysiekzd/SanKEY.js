@@ -1,4 +1,5 @@
 # SanKEY.js v1.0.0
+*last updated: 19.07.2022*
 <img src="./logo.png"/>
 
 ## __Getting started__
