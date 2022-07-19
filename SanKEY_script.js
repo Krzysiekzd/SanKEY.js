@@ -89,7 +89,7 @@ class PlotCreator{
     /**
      * Main class to create and manage the Sankey Plot. 
      * # SanKEY.js
-     * (c) 2021 Krzysztof Zdąbłasz, MIT License, https://github.com/Krzysiekzd/
+     * (c) 2021 Krzysztof Zdąbłasz, GPL 3.0 License, https://github.com/Krzysiekzd/
      * 
      * @param {HTMLElement} dom_container - DOM element in which the plot will be created. Creating a plot inside it may override some of its default styles. In particular, it will set the *overflow* to '*auto*'.
      * @param {single_node_data[][]} nodes_data - Nodes data.
