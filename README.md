@@ -14,7 +14,7 @@ __Remember to add *type=module* declaration while including your script in an HT
 SanKEY.js also requires "SanKEY_styles.css" to work properly. This CSS file can be modified to change some basic library styles. Read more about it in the documentation section. The full HTML declaration should look more or less like this:  
 ```html
 <script type="module" src="./your_main_script.js"></script>
-<link rel="stylesheet" href=SanKEY_styles.css>
+<link rel="stylesheet" href='./SanKEY_styles.css'>
 ```
 ## __Documentation__
 To generate a plot, simply create an instance of the PlotCreator class.  
