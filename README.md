@@ -17,6 +17,7 @@ SanKEY.js also requires "SanKEY_styles.css" to work properly. This CSS file can 
 <link rel="stylesheet" href='./SanKEY_styles.css'>
 ```
 ## __Customize your plots however you want__
+SanKEY.js offers possibilities like no other library.  
 <img src="./example_1.png" style='max-width:900px;max-height:350px;' />  
 
 __Code of this example__:
@@ -28,10 +29,7 @@ let nodes = [
     [{label:'Any label', width: 0.8, color:'#ff00ff'},{label:'G'}],
     [{label:'T'}],
     [{label:'A', color: '#6dd9fa'}, {label:'G'}],
-    [],
-    [{label: 'A', width: 2 }],
-    [],
-    [],
+    [],[{label: 'A', width: 2 }],[],[],
 ]
 let links =[
     {from:{column: 0, node: 1}, to:{column: 1, node: 0}, value:1, link_type: 'LL'},
@@ -49,13 +47,7 @@ let links =[
     {from:{column: 4, node: 0}, to:{column: 4, node: 0}, value:1},
 ]
 new PlotCreator(
-    document.body,
-    nodes,
-    links,
-    1000,
-    400,
-    0,
-    5,
+    document.body, nodes, links, 1000, 400, 0, 5,
     {
         plot_background_color: '#f4edf7',
         default_links_opacity: 0.8,
