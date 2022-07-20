@@ -62,11 +62,11 @@ new PlotCreator(
 ## __Documentation__
 To generate a plot, simply create an instance of the PlotCreator class.  
 ### __What you need to know about PlotCreator class:__
-    Interactions with the plot, such as changing the plot range, can be achieved by using methods of the class. Each time a method is called, the plot is refreshed, that is, the old plot element on the page is removed and a new one is generated. If the nodes were moved, it is remembered, and refreshing the plot won't change their positions in relation to the columns. 
-    Most of the PlotCreator properties are not private (yet) and theoretically could be modified. However, in most cases it's not recommended. It is advised to use proper methods in order to change them.  
-    Nodes and links data are kept as references to reduce memory usage. Thus, modifying them will impact the PlotCreator object. Adding or removing columns/nodes/links is strongly discouraged, however, changing individual properties such as colors or labels can be beneficial. In such a case, to observe a change, the plot needs to be refreshed.
-    It's important to mention that in some cases links_data will be slightly modified by PlotCreator. More about it below.  
-    The nodes must have a fixed order in the columns. They will be created according to this order, from top to bottom.
+Interactions with the plot, such as changing the plot range, can be achieved by using methods of the class. Each time a method is called, the plot is refreshed, that is, the old plot element on the page is removed and a new one is generated. If the nodes were moved, it is remembered, and refreshing the plot won't change their positions in relation to the columns.  
+Most of the PlotCreator properties are not private (yet) and theoretically could be modified. However, in most cases it's not recommended. It is advised to use proper methods in order to change them.  
+Nodes and links data are kept as references to reduce memory usage. Thus, modifying them will impact the PlotCreator object. Adding or removing columns/nodes/links is strongly discouraged, however, changing individual properties such as colors or labels can be beneficial. In such a case, to observe a change, the plot needs to be refreshed.  
+It's important to mention that in some cases links_data will be slightly modified by PlotCreator. More about it below.  
+The nodes must have a fixed order in the columns. They will be created according to this order, from top to bottom.  
 ## PlotCreator class
 Main class for generating and managing the Sankey diagrams. It requires 7 arguments:  
 * dom_container - *HTMLelement* - DOM element inside which the plot will be created.
