@@ -16,6 +16,57 @@ SanKEY.js also requires "SanKEY_styles.css" to work properly. This CSS file can 
 <script type="module" src="./your_main_script.js"></script>
 <link rel="stylesheet" href='./SanKEY_styles.css'>
 ```
+## __Customize your plots however you want__
+<img src="./example_1.png" style='max-width:900px;max-height:350px;' />  
+
+__Code of this example__:
+```javascript
+import {PlotCreator} from './SanKEY_script.js'
+let nodes = [
+    [{label:'A'}, {label:'C'}],
+    [{label:'A'}],
+    [{label:'Any label', width: 0.8, color:'#ff00ff'},{label:'G'}],
+    [{label:'T'}],
+    [{label:'A', color: '#6dd9fa'}, {label:'G'}],
+    [],
+    [{label: 'A', width: 2 }],
+    [],
+    [],
+]
+let links =[
+    {from:{column: 0, node: 1}, to:{column: 1, node: 0}, value:1, link_type: 'LL'},
+    {from:{column: 0, node: 0}, to:{column: 1, node: 0}, value:1, link_type: 'LR'},
+    {from:{column: 0, node: 0}, to:{column: 1, node: 0}, value:1, link_type: 'LR'},
+    {from:{column: 0, node: 1}, to:{column: 1, node: 0}, value:2, link_type: 'LR'},
+    {from:{column: 1, node: 0}, to:{column: 2, node: 0}, value:2, link_type: 'RL'},
+    {from:{column: 1, node: 0}, to:{column: 2, node: 1}, value:1, link_type: 'RR'},
+    {from:{column: 2, node: 0}, to:{column: 3, node: 0}, value:1},
+    {from:{column: 2, node: 0}, to:{column: 4, node: 1}, value:1, link_type: "LR"},
+    {from:{column: 3, node: 0}, to:{column: 4, node: 0}, value:1.8},
+    {from:{column: 3, node: 0}, to:{column: 4, node: 1}, value:1, link_type: 'LR', color: 'black'},
+    {from:{column: 3, node: 0}, to:{column: 4, node: 1}, value:0.5},
+    {from:{column: 4, node: 1}, to:{column: 6, node: 0}, value:0.5},
+    {from:{column: 4, node: 0}, to:{column: 4, node: 0}, value:1},
+]
+new PlotCreator(
+    document.body,
+    nodes,
+    links,
+    1000,
+    400,
+    0,
+    5,
+    {
+        plot_background_color: '#f4edf7',
+        default_links_opacity: 0.8,
+        default_gradient_links_opacity: 0.8,
+        label_colors_object: {A: "#3680f7", C: "#39db64", T: '#eb4034', G: '#ebc950', 'Any label': 'magenta'},
+        lines_style_object: {stroke:'black','stroke-opacity':0.2},
+        column_names_style_object: { color:'black', opacity:0.6,},
+    }
+)
+```
+
 ## __Documentation__
 To generate a plot, simply create an instance of the PlotCreator class.  
 ### __What you need to know about PlotCreator class:__
