@@ -272,7 +272,7 @@ As aforementioned, SanKEY.js requires SanKEY_styles.css to work properly. The fi
 
 We recommend customizing it to one's needs.  
 
-## __Additional informations__
+## __Additional information__
 Work on the library is still in progress. Please contact us if you find any bugs or mistakes.  
 A short guide to using the library will be added soon.  
 **It is forbidden to distribute the internal library code as your own in any external repositories.**  
