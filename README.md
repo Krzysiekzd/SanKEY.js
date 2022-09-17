@@ -151,7 +151,7 @@ Boolean, determines whether to show the lines between columns. The default value
 #### **- show_column_names**
 Boolean, determines whether to show the column names. The default value is *true*.
 #### **- show_links_out_of_range**
-Boolean, determines whether to show links in a situation where both nodes are not in the range of the plot, but the link between them is. If set to *true*, each time the plot is being refreshed, PlotCreator will look for such links, by scanning *k* nearest columns on each side of the column range, where *k* is the *length* of the longest link in the graph and *length* being defined as *|column_of_the_first_node - column_of_the_second_node|*. This may negatively impact the performance, however, unless there are links with the *length* around several thousand columns, the slowdown should not be noticeable. The default value is *true*.
+Boolean, determines whether to show links in a situation where both nodes are not in the range of the plot, but the link between them is. If set to *true*, each time the plot is being refreshed, PlotCreator will look for such links, by scanning *k* nearest columns on one side of the column range, where *k* is the *length* of the longest link in the graph and *length* being defined as *|column_of_the_first_node - column_of_the_second_node|*. This may negatively impact the performance, however, unless there are links with the *length* around several thousand columns, the slowdown should not be noticeable. The default value is *true*.
 #### **- node_move_y**
 Boolean, determines whether the nodes can be moved vertically. The default value is *true*.
 #### **- linear_gradient_links**
