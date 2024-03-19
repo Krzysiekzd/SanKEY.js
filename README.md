@@ -6,7 +6,7 @@
 SanKEY.js is a small JavaScript data visualization "package" that provides a simple object-oriented API to create interactive column-ordered Sankey diagrams. It's free of dependencies and written in vanilla JavaScript. SanKEY.js was designed with the goal of maximum performance, so it works faster than any other library or package used for the purpose of creating Sankey diagrams. It allows a high level of customization with features like special link shapes, adjustable nodes width and integrated callback functions. The possibility of easily creating plots with thousands of columns and tens of thousands of nodes and links redefines the capabilities of Sankey diagrams and opens new horizons for their usage.
 
 ## __Usage__
-SanKEY.js is provided as an ES6 module. To use the it, download "SanKEY_script.js" and include the line below in your main script file. 
+SanKEY.js is provided as an ES6 module. To use it, download "SanKEY_script.js" and include the line below in your main script file. 
 ```javascript
 import {PlotCreator} from './SanKEY_script.js'
 ```
@@ -289,8 +289,9 @@ Number of nodes | Number of links | Columns (for SanKEY.js) | Mean generation ti
 The results show up to 1000 times better performance in comparison to Plotly. The difference grows with the size of the dataset.
 
 ## __Additional information__
-Work on this project is still in progress. Please contact me if you find any bugs or mistakes.  
-**It is forbidden to distribute the internal code as your own in any external repositories. Appropriate mention or citation is required.**  
+- Work on this project is (technically) still in progress. Please contact me if you find any bugs or mistakes.  
+- **It is forbidden to distribute the internal code as your own in any external repositories. Appropriate mention or citation is required.**  
+- Ideally I'd like to release a NPM package and add TypeScript type definitions, but it's not of any priority for me at the moment. The code is quite old, so it would require a thorough refactoring. Maybe if the project sparks some interest...
 
 The project was created and is maintained by Krzysztof Zdąbłasz.  
 I would like to thank Zuzanna Czerska for her help with not coding-related works.  
