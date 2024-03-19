@@ -3,21 +3,21 @@
 <img src="./logo.png"/>
 
 ## __Getting started__
-SanKEY.js is a JavaScript data visualization library that provides a simple object-oriented API to create interactive column-ordered Sankey diagrams. It's free of dependencies and written in vanilla JavaScript. SanKEY.js was designed with the goal of maximum performance, so it works faster than any other library used for the purpose of creating Sankey diagrams. It allows a high level of customization with features like special link shapes, adjustable nodes width and integrated callback functions. The possibility of easily creating plots with thousands of columns and tens of thousands of nodes and links redefines the capabilities of Sankey diagrams and opens new horizons for their usage.
+SanKEY.js is a small JavaScript data visualization "package" that provides a simple object-oriented API to create interactive column-ordered Sankey diagrams. It's free of dependencies and written in vanilla JavaScript. SanKEY.js was designed with the goal of maximum performance, so it works faster than any other library or package used for the purpose of creating Sankey diagrams. It allows a high level of customization with features like special link shapes, adjustable nodes width and integrated callback functions. The possibility of easily creating plots with thousands of columns and tens of thousands of nodes and links redefines the capabilities of Sankey diagrams and opens new horizons for their usage.
 
 ## __Usage__
-SanKEY.js is provided as an ES6 module. To use the library, download "SanKEY_script.js" and include the line below in your main script file. 
+SanKEY.js is provided as an ES6 module. To use it, download "SanKEY_script.js" and include the line below in your main script file. 
 ```javascript
 import {PlotCreator} from './SanKEY_script.js'
 ```
 __Remember to add *type=module* declaration while including your script in an HTML document__.  
-SanKEY.js also requires "SanKEY_styles.css" to work properly. This CSS file can be modified to change some basic library styles. Read more about it in the documentation section. The full HTML declaration should look more or less like this:  
+SanKEY.js also requires "SanKEY_styles.css" to work properly. This CSS file can be modified to change some basic styles. Read more about it in the documentation section. The full HTML declaration should look more or less like this:  
 ```html
 <script type="module" src="./your_main_script.js"></script>
 <link rel="stylesheet" href='./SanKEY_styles.css'>
 ```
 ## __Customize your plots however you want__
-SanKEY.js offers possibilities like no other library.  
+SanKEY.js offers possibilities like no other library or package.  
 <img src="./example_1.png" style='max-width:900px;max-height:350px;' />  
 
 __Code of this example__:
@@ -110,7 +110,7 @@ __Properties defined here will have a higher priority than those defined as defa
 * _from_ - object with *column* and *position* properties defined. It describes the coordinates of the node from which the link goes. *Position* is the node's index in the column array.
 * _to_ - object with *column* and *position* properties defined.  It Describes the coordinates of the node to which the link goes. *Position* is the node's index in the column array.
 * _value_ - number, value of the link.
-* _link_type_ (Optional) - string, one of ['RL','RR','LR','LL']. Describes the shape of the link. If not specified, 'RL' is assumed. The first letter describes on which side of the first node the link will be created, and the second - on which side of the second one. Connections between nodes can be specified from further columns to the previous ones. In such cases, due to library's internal architecture, link_type will be overwritten and the *reversed=true* property will be added.
+* _link_type_ (Optional) - string, one of ['RL','RR','LR','LL']. Describes the shape of the link. If not specified, 'RL' is assumed. The first letter describes on which side of the first node the link will be created, and the second - on which side of the second one. Connections between nodes can be specified from further columns to the previous ones. In such cases, due to the internal architecture, link_type will be overwritten and the *reversed=true* property will be added.
 * _color_ (Optional) - any CSS color. Color of the link. 
 * _sublinks_ (Optional) - an array of sublink objects. Sublinks are separate links that are included in the area of the link. The shape of the sublink is inherited from its parent link. Objects describing sublinks should have defined *value* and *shift* properties. *Value* is interpreted in the same way as in normal links. *Shift* is a positive number and defines by what fraction of the parent's link height is the sublink shifted downwards, in relation to the parent's link upper edge. To simplify, *shift=0.5* means that the top edge of the sublink will be exactly in the middle of the parent link's height. In addition, each sublink can have its own unique *color* defined. Unlike normal links, sublinks are parsed every time the plot is refreshed, so they can be used, for example, to dynamically highlight paths in the diagram. *Note: nested sublinks won't be parsed*.
 
@@ -239,8 +239,6 @@ Function that will be executed after a link is hovered. PlotCreator will try to 
 ```
 
 
-
-
 ### **PlotCreator methods:**
 After the plot is initially generated, the methods allow interacting with it to, for example, change some of the default properties.
 
@@ -264,7 +262,7 @@ Additional function. Sets multiple attributes to a DOM element. Can be imported.
 * dom_element - *HTMLelement* - Target DOM Element.
 * arg_val_object - *Object* - Object with the attributes to be set.
 
-## CSS stylesheet
+## CSS
 As aforementioned, SanKEY.js requires SanKEY_styles.css to work properly. The file is short and contains classes that allow modifying the following things:
 * on hover appearance and animations of nodes and links
 * appearance and animations of info bubbles
@@ -272,12 +270,30 @@ As aforementioned, SanKEY.js requires SanKEY_styles.css to work properly. The fi
 
 We recommend customizing it to one's needs.  
 
-## __Additional information__
-Work on the library is still in progress. Please contact us if you find any bugs or mistakes.  
-A short guide to using the library will be added soon.  
-**It is forbidden to distribute the internal library code as your own in any external repositories.**  
+## Benchmarks
+A simple benchmark scripts can be found in the "benchmarks" directory. 
+Results can be compared with the [Plotly library](https://plotly.com/javascript/). To run the tests, set up a simple local server, for example, with [Node.js live-server pacakge](https://www.npmjs.com/package/live-server), and open the HTML with the tests that you want to run.  
+Be aware, that the tests can be very time-consuming. It's strongly suggested that you adjust the number of test runs by modifying `testData` variables in JS files, especially for the configurations with a large number of nodes and links.  
+Since the tests are run in the browser, many things can influence the final result: hardware, resources assigned to your browser, processes running in the background, garbage collection cycles, and so on. There's no guarantee that the tests will yield the same results for different machines, or even the same machine if run more than once.  
+The tests may put a big pressure on the browser, due to intense resource exploitation. It's recommended that you run the tests for different test data in isolation. It's highly likely, that the browser will crash during the tests.  
+The results presented below were run on: Chrome 118, Ubuntu 22.04, 12th Gen Intel® Core™ i7-1265U × 12, Mesa Intel® Graphics (ADL GT2).  
+Number of nodes | Number of links | Columns (for SanKEY.js) | Mean generation time, Plotly (ms) | Mean generation time, SanKEY.js (Initial, reload) (ms)
+--- | --- | --- | --- |--- 
+10 | 40 | 5 | 6.33 | 0.48, 0.35 
+100 | 400 | 20 | 56.78 | 3.38, 2.81 
+500 | 2000 | 100 | 1129.32 | 17.82, 14.89 
+1000 | 4000 | 200 | 7012.73 | 38.04, 33.00 
+5000 | 10000 | 1000 | 59 483.17 | 102.66, 93.49
+10000 | 20000 | 2000 | 222 179.5 | 233.26, 187.63 
 
-The library was created and is maintained by Krzysztof Zdąbłasz.  
-I would like to thank Zuzanna Czerska for her help with non-programming works.  
+The results show up to 1000 times better performance in comparison to Plotly. The difference grows with the size of the dataset.
+
+## __Additional information__
+- Work on this project is (technically) still in progress. Please contact me if you find any bugs or mistakes.  
+- **It is forbidden to distribute the internal code as your own in any external repositories. Appropriate mention or citation is required.**  
+- Ideally I'd like to release a NPM package and add TypeScript type definitions, but it's not of any priority for me at the moment. The code is quite old, so it would require a thorough refactoring. Maybe if the project sparks some interest...
+
+The project was created and is maintained by Krzysztof Zdąbłasz.  
+I would like to thank Zuzanna Czerska for her help with not coding-related works.  
 e-mail: krzysiek.zdablasz@gmail.com
 
