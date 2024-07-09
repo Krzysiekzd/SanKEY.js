@@ -290,11 +290,9 @@ Number of nodes | Number of links | Columns (for SanKEY.js) | Mean generation ti
 The results show up to 1000 times better performance in comparison to Plotly. The difference grows with the size of the dataset.
 
 ## __Additional information__
-- Work on this project is (technically) still in progress. Please contact me if you find any bugs or mistakes.  
 - **It is forbidden to distribute the internal code as your own in any external repositories. Appropriate mention or citation is required.**  
-- Ideally I'd like to release a NPM package and add TypeScript type definitions, but it's not of any priority for me at the moment. The code is quite old, so it would require a thorough refactoring. Maybe if the project sparks some interest...
+- Ideally I'd like to release a NPM package and add TypeScript type definitions in the future.  
 
 The project was created and is maintained by Krzysztof Zdąbłasz.  
-I would like to thank Zuzanna Czerska for her help with not coding-related works.  
-e-mail: krzysiek.zdablasz@gmail.com
+Contact e-mail: krzysiek.zdablasz@gmail.com
 
